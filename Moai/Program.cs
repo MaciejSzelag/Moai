@@ -78,9 +78,37 @@ namespace Moai
             foreach (string row in level)
             {
                 Console.WriteLine(row);
-            }  
-            Console.SetCursorPosition(2,5);
+            }
+
+            int playeColumn = 2;
+            int plalyerRow = 5;
+
+
+            while (true) { 
+            Console.SetCursorPosition(playeColumn, plalyerRow);
             Console.Write("@");
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            if (keyInfo.Key == ConsoleKey.UpArrow)
+            {
+                plalyerRow--;
+
+
+            }
+            else if (keyInfo.Key == ConsoleKey.DownArrow)
+            {
+                plalyerRow++;
+            }
+            else if (keyInfo.Key == ConsoleKey.LeftArrow)
+            {
+                playeColumn--;
+            }
+            else if (keyInfo.Key == ConsoleKey.RightArrow)
+            {
+                playeColumn++;
+            }
+        }
             Console.SetCursorPosition(0, level.Length);
 
         }
