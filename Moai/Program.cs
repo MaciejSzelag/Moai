@@ -78,7 +78,10 @@ namespace Moai
             foreach (string row in level)
             {
                 Console.WriteLine(row);
-            }   
+            }  
+            Console.SetCursorPosition(2,5);
+            Console.Write("@");
+            Console.SetCursorPosition(0, level.Length);
 
         }
 
