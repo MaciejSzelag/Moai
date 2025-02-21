@@ -74,6 +74,11 @@ namespace Moai
                 nextMapRowPosition++;
                 Console.ReadKey(true);
             }
+            Console.Clear();
+            foreach (string row in level)
+            {
+                Console.WriteLine(row);
+            }   
 
         }
 
