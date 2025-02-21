@@ -80,39 +80,54 @@ namespace Moai
                 Console.WriteLine(row);
             }
 
-            int playeColumn = 2;
+            int playerColumn = 2;
             int plalyerRow = 5;
 
 
             while (true) { 
-            Console.SetCursorPosition(playeColumn, plalyerRow);
+            Console.SetCursorPosition(playerColumn, plalyerRow);
             Console.Write("@");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            Console.SetCursorPosition(playeColumn, plalyerRow);
+            Console.SetCursorPosition(playerColumn, plalyerRow);
             string currentCell = level[plalyerRow];
-            char currentChar = currentCell[playeColumn];
+            char currentChar = currentCell[playerColumn];
             Console.Write(currentChar);
 
-                if (keyInfo.Key == ConsoleKey.UpArrow)
+                int targetColumn = playerColumn;
+                int targetRow = plalyerRow;
+
+            if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-                plalyerRow--;
-
-
+               targetRow = plalyerRow - 1;
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                plalyerRow++;
+                    targetRow = plalyerRow + 1;
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                playeColumn--;
+                    targetColumn = playerColumn - 1;
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                playeColumn++;
+                    targetColumn = playerColumn + 1;
             }
-        }
+                if (targetRow >= 0 && targetRow < level.Length)
+                {
+                    string targetRowString = level[targetRow];
+                    if (targetColumn >= 0 && targetColumn < targetRowString.Length)
+                    {
+                        char targetCell = targetRowString[targetColumn];
+                        if (targetCell != '#')
+                        {
+                            playerColumn = targetColumn;
+                            plalyerRow = targetRow;
+                        }
+                    }
+
+                }
+            }
             Console.SetCursorPosition(0, level.Length);
 
         }
