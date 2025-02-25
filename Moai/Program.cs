@@ -89,9 +89,10 @@ namespace Moai
             Console.Write("@");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
             Console.SetCursorPosition(playerColumn, plalyerRow);
-            string currentCell = level[plalyerRow];
-            char currentChar = currentCell[playerColumn];
+    
+            char currentChar = level[plalyerRow][playerColumn];
             Console.Write(currentChar);
 
                 int targetColumn = playerColumn;
