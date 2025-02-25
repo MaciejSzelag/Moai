@@ -81,30 +81,33 @@ namespace Moai
             }
 
             int playerColumn = 2;
-            int plalyerRow = 5;
+            int playerRow = 5;
 
 
             while (true) { 
-            Console.SetCursorPosition(playerColumn, plalyerRow);
-            Console.Write("@");
+         
+
+            WriteAt(playerColumn, playerRow, "@");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-            Console.SetCursorPosition(playerColumn, plalyerRow);
+        
     
-            char currentChar = level[plalyerRow][playerColumn];
-            Console.Write(currentChar);
+            char currentChar = level[playerRow][playerColumn];
+        
 
-                int targetColumn = playerColumn;
-                int targetRow = plalyerRow;
+            WriteAt(playerColumn, playerRow, currentChar);
+
+            int targetColumn = playerColumn;
+            int targetRow = playerRow;
 
             if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-               targetRow = plalyerRow - 1;
+               targetRow = playerRow - 1;
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                    targetRow = plalyerRow + 1;
+                    targetRow = playerRow + 1;
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
@@ -128,7 +131,7 @@ namespace Moai
                         if (targetCell != '#')
                         {
                             playerColumn = targetColumn;
-                            plalyerRow = targetRow;
+                            playerRow = targetRow;
                         }
                     }
 
@@ -138,6 +141,16 @@ namespace Moai
 
         }
 
+     static void WriteAt(int columnNumber, int rowNumber, string text)
+        {
+            Console.SetCursorPosition(columnNumber, rowNumber);
+            Console.Write(text);
+        }
+        static void WriteAt(int columnNumber, int rowNumber, char sign)
+        {
+            Console.SetCursorPosition(columnNumber, rowNumber);
+            Console.Write(sign);
+        }
     }
 }
 
