@@ -33,12 +33,12 @@ namespace Moai
 
             string[] level = {
             "#########",
-            "#    #  #",
-            "#   ##  #",
-            "#    #  #",
+            "#       #",
+            "#  ###  #",
+            "#  # #  #",
             "#    #  #",
             "#       #",
-            "#    #  #",
+            "#       #",
             "#########"
             };
 
@@ -112,8 +112,13 @@ namespace Moai
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
                     targetColumn = playerColumn + 1;
-            }
-                if (targetRow >= 0 && targetRow < level.Length)
+                }
+                else
+                {
+                    break;
+                }
+
+            if (targetRow >= 0 && targetRow < level.Length)
                 {
                     string targetRowString = level[targetRow];
                     if (targetColumn >= 0 && targetColumn < targetRowString.Length)
