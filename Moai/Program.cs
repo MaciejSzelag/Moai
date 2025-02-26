@@ -80,42 +80,40 @@ namespace Moai
                 Console.WriteLine(row);
             }
 
-            int playerColumn = 2;
-            int playerRow = 5;
-
+            Player player = new Player();
 
             while (true) { 
          
 
-            Display.WriteAt(playerColumn, playerRow, "@");
+            Display.WriteAt(player.x, player.y, player.avatar);
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
         
     
-            char currentChar = level[playerRow][playerColumn];
+            char currentChar = level[player.y][player.x];
         
 
-            Display.WriteAt(playerColumn, playerRow, currentChar);
+            Display.WriteAt(player.x, player.y, currentChar);
 
-            int targetColumn = playerColumn;
-            int targetRow = playerRow;
+            int targetColumn = player.x;
+            int targetRow = player.y;
 
             if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-               targetRow = playerRow - 1;
+               targetRow = player.y - 1;
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                    targetRow = playerRow + 1;
+                    targetRow = player.y + 1;
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                    targetColumn = playerColumn - 1;
+                    targetColumn = player.x - 1;
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                    targetColumn = playerColumn + 1;
+                    targetColumn = player.x + 1;
                 }
                 else
                 {
@@ -130,8 +128,8 @@ namespace Moai
                         char targetCell = targetRowString[targetColumn];
                         if (targetCell != '#')
                         {
-                            playerColumn = targetColumn;
-                            playerRow = targetRow;
+                            player.x = targetColumn;
+                            player.y = targetRow;
                         }
                     }
 
